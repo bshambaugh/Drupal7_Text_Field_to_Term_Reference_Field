@@ -13,7 +13,7 @@ $dbg = 1;
 // Populate the unix timestamp array by pulling values from the node table
 foreach($destnidmap as $i => $value) {
 $result = db_query('SELECT {node}.created FROM {node} WHERE {node}.nid = '.$destnidmap[$i].'')->fetchObject();
-/
+
 array_push($nid_created_array,$result->created);
 }
 

@@ -173,6 +173,7 @@ function insert_taxonomy_term($entity_type, $bundle, $deleted, $entity_id, $revi
        'entity_id' => $entity_id,
        'revision_id' => $revision_id,
        'language' => $language,
+       'delta' => $delta,
         $field_field_name_tid => $tid
   ))
   ->execute();
