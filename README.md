@@ -26,6 +26,7 @@
  * select_text_nid.drush.php
  * remove-duplicate-text-nid-pairs.drush.php
  * create_taxonomy_term_with_text.drush.php
+ * remove-duplicate-nid-tid-pairs.drush.php
  * taxonomy-write-maps.drush.php
  * taxonomy-add-to-index.drush.php
 
@@ -44,7 +45,7 @@
   Output: Node IDs with the Text Field and Term Reference Fields with the Specified Bundle Types,
           Text field Contents
 
-  remove-duplicate-text-nid-pairs
+  remove-duplicate-text-nid-pairs.drush.php
   -------------------------------
   Input: Node IDs with the Text Field and Term Reference Fields with the Specified Bundle Types,
          Text field Contents
@@ -57,9 +58,14 @@
 
    Input: Node IDs with the Text Field and Term Reference Fields with the Specified Bundle Types,
           Text field Contents (without duplicates)
-   Output: Taxonomy Term IDs, Taxonomy Term IDs, and Corresponding Node IDs,
+   Output: Taxonomy Term IDs, Taxonomy Term IDs, and Corresponding Node IDs (with duplicates),
            New Taxonomy Terms for each Text Field string created in the taxonomy_term_data SQL table if they do not already exist.
 
+    remove-duplicate-nid-tid-pairs.drush.php
+    ----------------------------------------
+
+    Input: Taxonomy Term IDs, Taxonomy Term IDs, and Corresponding Node IDs (with duplicates)
+    Output: Taxonomy Term IDs, Taxonomy Term IDs, and Corresponding Node IDs (without duplicates)
 
    taxonomy-write-maps.drush.php
    -----------------------------
