@@ -84,13 +84,15 @@ if($dbg == 1) {
 }
 
 // Clear the existing arrays for the existing node ids and text field values
-foreach($nid_array as $i => $value) {
-  unset($nid_array[$i]);
-}
 
-foreach($field_text_field_name_value_array as $i => $value) {
-  unset($field_text_field_name_value_array[$i]);
-}
+ foreach($nid_array as $i => $value) {
+   array_pop($nid_array);
+ }
+
+ foreach($field_text_field_name_value_array as $i => $value) {
+   array_pop($field_text_field_name_value_array);
+ }
+
 
 // Map the arrays that remove duplicates for the node ids and text field values
 foreach($nid_clean_map as $i => $value) {
