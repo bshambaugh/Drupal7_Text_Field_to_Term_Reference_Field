@@ -26,13 +26,13 @@
  $table_text_field_name_value = $text_field_machine_name.'_value';
 
 // The content types of the nodes that you wish to convert. Please change to match your needs.
- $bundle_type = array('portal','semantic_portal_page');
+ $bundle_type = array('semantic_portal_page');
 /* If you wish to convert all content types containing a particular text field and a term reference field
  * please use this assignment of the bundle_type variable instead of the one above. */
 //$bundle_type = array('%');
 
 // Specify a field name for the target Term Reference field
-$term_reference_field_name = 'field_ispcolumn';
+$term_reference_field_name = 'field_core_or_previou_utilized_r';
 //$term_reference_field_name = '%';
 
 // Define an array containing node ids for all nodes containing the text field
@@ -137,13 +137,7 @@ vocabulary */
 $nid_array = array();
 $field_text_field_name_value_array = array();
 
-// Initially map the storage arrays for all nodes that contain the specified text field
-foreach($nid_array_for_text_field as $i => $value) {
-  array_push($nid_array,$nid_array_for_text_field[$i]);
-  array_push($field_text_field_name_value_array,$field_text_field_name_value_array_all[$i]);
-}
-
-// Reduce the storage arrays by removing elements that have a text field, but no term reference field
+// Reduce by removing elements that have a text field, but no term reference field
 foreach( $nid_array_for_text_field as $i => $value_one) {
   foreach($nid_array_for_text_and_term_ref_field as $j => $value_two) {
 
@@ -151,10 +145,12 @@ foreach( $nid_array_for_text_field as $i => $value_one) {
       if($dbg == 1) {
         echo("We are equal for ".$nid_array_for_text_field[$i]." and ".$nid_array_for_text_and_term_ref_field[$j]);
         echo("\r\n");
+        array_push($nid_array,$nid_array_for_text_field[$i]);
+        array_push($field_text_field_name_value_array,$field_text_field_name_value_array_all[$i]);
       }
     } elseif ($nid_array_for_text_field[$i] !== $nid_array_for_text_and_term_ref_field[$j]) {
-      unset($nid_array[$i]);
-      unset($field_text_field_name_value_array[$i]);
+    //  unset($nid_array[$i]);
+    //  unset($field_text_field_name_value_array[$i]);
       if($dbg == 1) {
         echo("We are not equal for ".$nid_array_for_text_field[$i]." and ".$nid_array_for_text_and_term_ref_field[$j]);
         echo("\r\n");

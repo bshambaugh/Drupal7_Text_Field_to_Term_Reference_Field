@@ -99,7 +99,7 @@ if($dbg == 1){
  print_r($destmaptid);
 }
 
-// Clear the existing arrays for the existing node ids and text field values
+// Clear the existing arrays for the existing node ids and taxonomy id values
  foreach($destnidmap as $i => $value) {
    array_pop($destnidmap);
  }
